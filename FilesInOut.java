@@ -146,7 +146,9 @@ public class FilesInOut {
         boolean flag = false;
         String flagInput;
 
+        // until flag is read
         do {
+            // try to get an input that is one letter, and is y or n
             try {
                 System.out.println(prompt);
                 flagInput = in.nextLine();
