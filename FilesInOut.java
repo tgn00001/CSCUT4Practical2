@@ -24,9 +24,9 @@ public class FilesInOut {
             do {
                 System.out.println("Supply file path for input:");
                 input = new File(in.nextLine());
-                if (!input.canRead())
+                if (!input.exists() || !input.canRead())
                     System.out.println("Error: can not read from file.");
-            } while (!input.canRead());
+            } while (!input.exists() || !input.canRead());
 
             // get output file
             do {
@@ -34,12 +34,12 @@ public class FilesInOut {
                     System.out.println("Supply file path for output:");
                     output = new File(in.nextLine());
                     output.createNewFile();
-                    if (!output.canWrite())
+                    if (!input.exists() || !output.canWrite())
                         System.out.println("Error: can not write to file.");
                 } catch (Exception e) {
                     System.out.println("Error: file can not be created");
                 }
-            } while (!output.canWrite());
+            } while (!input.exists() || !output.canWrite());
 
             // get -u flag
             boolean readFlag = false;
